@@ -53,7 +53,11 @@ export class App {
 
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
-            this.handleAdd(inputElement.value);
+            const inputValue = inputElement.value.trim();
+            if (inputValue === "") {
+                return;
+            }
+            this.handleAdd(inputValue);
             inputElement.value = "";
         });
     }
